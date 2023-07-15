@@ -3,8 +3,9 @@ const Task = require("../models/Task");
 module.exports = class TaskControllers {
 
     static async home(req, res) {
+        const userId = req.session.userid;
        try {
-        const tasks = await Task.showTasks()
+        const tasks = await Task.showTasks(userId)
         
         res.render('tasks/home',{tasks})
         
@@ -20,7 +21,8 @@ module.exports = class TaskControllers {
     }
     static async createTaskPost(req,res) {
         const {title,done} = req.body;
-        const task = new Task(title,done)
+        const userId = req.session.userid
+        const task = new Task(title,done,userId)
         await task.create()
         res.redirect('/')
     }

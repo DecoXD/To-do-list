@@ -2,13 +2,14 @@ const conn = require('../db/conn')
 const {ObjectId} = require('mongodb')
 class Task {
     
-    constructor(title,done ){
+    constructor(title,done,userId ){
         this.title = title;
         this.done = done;
+        this.userId = userId
     }
 
-    static async showTasks () {
-        const tasks = await conn.db().collection('tasks').find().toArray()
+    static async showTasks (userId) {
+        const tasks = await conn.db().collection('tasks').find({userId:userId}).toArray()
         return tasks
     }
 
@@ -29,7 +30,8 @@ class Task {
         }
        await conn.db().collection('tasks').insertOne({
             title:this.title,
-            done:this.done
+            done:this.done,
+            userId:this.userId,
         })
         return
     }
