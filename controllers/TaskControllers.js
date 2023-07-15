@@ -6,7 +6,7 @@ module.exports = class TaskControllers {
         const userId = req.session.userid;
        try {
         const tasks = await Task.showTasks(userId)
-        
+       
         res.render('tasks/home',{tasks})
         
        } catch (error) {
@@ -28,14 +28,14 @@ module.exports = class TaskControllers {
     }
 
     static async editTask(req,res) {
-        const{title,done,_id} = req.body;
+        const{title,done,_id,userId} = req.body;
         let status = false
         if(done == "on"){
             status = true
         }
         console.log(status)
         try {
-            const task = new Task(title,status)
+            const task = new Task(title,status,userId)
             await task.edit(_id)
             res.redirect('/')
         } catch (error) {

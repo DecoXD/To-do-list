@@ -133,7 +133,7 @@ text-align:center;
 
 
 /* modal css */
-.edit-container:has(input[type='checkbox']#modal:checked) .modal-container{
+.edit-container:has(input[type='checkbox']:checked) .modal-container{
  display: flex;
 }
 

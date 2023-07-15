@@ -19,6 +19,7 @@
             <form action="/tasks/edit" method="post">
               <input type="hidden" name="title" value="{{this.title}}">
               <input type="hidden" name="_id" value="{{this._id}}">
+              <input type="hidden" name="userId" value="{{this.userId}}">
               <input type="hidden" name="done" value="0">
               <button type="submit" class="btn done">Completed</button>
           </form>
@@ -28,6 +29,7 @@
             <form action="/tasks/edit" method="post">
               <input type="hidden" name="title" value="{{this.title}}">
               <input type="hidden" name="_id" value="{{this._id}}">
+              <input type="hidden" name="userId" value="{{this.userId}}">
               <input type="hidden" name="done" value="on">
               <button type="submit" class="btn progress">In Progress</button>
           </form>
@@ -36,17 +38,18 @@
         {{/if}}
         <td>
           <div class="edit-container">
-            <label for="modal" class="btn edit">
+            <label for="{{this._id}}" class="btn edit">
               <i class="bi bi-pencil"></i>
             </label>
-              <input type="checkbox" name="" id="modal">
+              <input type="checkbox" name="" id="{{this._id}}">
               <div class="modal-container">
-                <label for="modal" class="modal-bg">                 
+                <label for="{{this._id}}" class="modal-bg">                 
                 </label>                
                 <div class="edit-form">
                   <h3>Editar</h3>
                   <form action="/tasks/edit" method="post" class="form-container" >
                     <input type="hidden" name="_id" value="{{this._id}}">
+                    <input type="hidden" name="userId" value="{{this.userId}}">
                     <input type="text" name="title" value="{{this.title}}" class="input-field">       
                       {{#if this.done}}
                        <input type="hidden" name="done" value="on">
