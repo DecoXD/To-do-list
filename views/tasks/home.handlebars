@@ -3,7 +3,7 @@
     <a href="/tasks/create"  class="btn add">adcionar task</a>
     <table>
       <tr>
-        <th>#</th>
+        
         <th>Task Name</th>
         <th>Status</th>
         <th>Edit</th>
@@ -11,19 +11,59 @@
       </tr>
      {{#each tasks}}
       <tr>
-        <td>1</td>
+        
         <td>{{this.title}}</td>
         {{#if this.done}}
         {{!-- criar um hover para quando nao estiver completo para fechar a pagina e aparecer para completar --}}
-          <td><span class="status done">Completed</span></td>
+          <td>
+            <form action="/tasks/edit" method="post">
+              <input type="hidden" name="title" value="{{this.title}}">
+              <input type="hidden" name="_id" value="{{this._id}}">
+              <input type="hidden" name="done" value="0">
+              <button type="submit" class="btn done">Completed</button>
+          </form>
+          </td>
         {{else}}
-          <td><span class="status progress">In Progress</span></td>
+          <td>
+            <form action="/tasks/edit" method="post">
+              <input type="hidden" name="title" value="{{this.title}}">
+              <input type="hidden" name="_id" value="{{this._id}}">
+              <input type="hidden" name="done" value="on">
+              <button type="submit" class="btn progress">In Progress</button>
+          </form>
+            </td>
+
         {{/if}}
-        <td><a href="">Edit</a></td>
+        <td>
+          <div class="edit-container">
+            <label for="modal" class="btn edit">
+              <i class="bi bi-pencil"></i>
+            </label>
+              <input type="checkbox" name="" id="modal">
+              <div class="modal-container">
+                <label for="modal" class="modal-bg">                 
+                </label>                
+                <div class="edit-form">
+                  <h3>Editar</h3>
+                  <form action="/tasks/edit" method="post" class="form-container" >
+                    <input type="hidden" name="_id" value="{{this._id}}">
+                    <input type="text" name="title" value="{{this.title}}" class="input-field">       
+                      {{#if this.done}}
+                       <input type="hidden" name="done" value="on">
+                      {{else}}
+                       <input type="hidden" name="done"  value="0">
+                      {{/if}}        
+                    <button type="submit" class="btn edit">Update</button>
+                  </form>
+                </div>
+              </div>
+          </div>
+          </td>
+
         <td style="width: 50px;">
           <form action="/tasks/delete" method="post">
             <input type="hidden" name="_id" value="{{this._id}}">
-            <button type="submit" class="btn">Remove</button>
+            <button type="submit" class="btn delete"><i class="bi bi-trash"></i></button>
         </form></td>
       </tr>
      {{/each}}

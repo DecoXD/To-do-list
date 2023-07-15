@@ -13,7 +13,6 @@ class Task {
     }
 
     static async deleteTask(id) {
-       
         try {
             await conn.db().collection('tasks').deleteOne({_id: new ObjectId(id)})
             return
@@ -33,6 +32,27 @@ class Task {
             done:this.done
         })
         return
+    }
+
+    async edit(id){
+       try {
+        await conn.db().collection('tasks').updateOne({_id:new ObjectId(id)},{$set:this})
+        return
+       } catch (error) {
+        console.log('erro na edção',error.message)
+        return
+       }
+    }
+
+    static async deleteTask(id) {
+        try {
+            await conn.db().collection('tasks').deleteOne({_id: new ObjectId(id)})
+            return
+
+        } catch (error) {
+           console.log(error)
+           return
+        }
     }
 
 }

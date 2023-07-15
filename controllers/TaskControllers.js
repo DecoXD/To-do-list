@@ -25,6 +25,23 @@ module.exports = class TaskControllers {
         res.redirect('/')
     }
 
+    static async editTask(req,res) {
+        const{title,done,_id} = req.body;
+        let status = false
+        if(done == "on"){
+            status = true
+        }
+        console.log(status)
+        try {
+            const task = new Task(title,status)
+            await task.edit(_id)
+            res.redirect('/')
+        } catch (error) {
+            console.log('error in update field')
+            req.flash('an error as been ocurred')
+            res.redirect('/')
+        }
+    }
 
 
 

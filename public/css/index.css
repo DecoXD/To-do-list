@@ -15,6 +15,19 @@ font-size: 1.6rem;
 font-family: "Poppins";
 
 }
+
+li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+input[type='checkbox']{
+    display: none;
+}
+
 .container{
 width: 100%;
 max-width: 100rem;
@@ -28,6 +41,7 @@ align-items: flex-end;
 flex-direction: column;
 gap: 1.2rem;
 width: 100%;
+font-size: clamp(1.1rem,.8rem + 1vw, 1.6rem);
 }
 
 table {
@@ -58,11 +72,12 @@ text-align:center;
 }
 
 .btn{
+   
     background: none;
     border: 1px solid;
     padding: .8rem 1.1rem;
     cursor: pointer;
-    font-size: 1.5rem;
+    font-size: clamp(1.1rem,.8rem + 1vw, 1.6rem);
     text-transform: capitalize;
 }
 .add{
@@ -72,6 +87,31 @@ text-align:center;
 
 }
 
+.edit{
+    color: #4d7ae8;
+    border-color: #4d7ae8;
+    box-shadow: 3px 3px 5px -2px #4d7ae8a2; 
+    
+}
+.edit:hover,.edit:hover i {
+    background-color: #4d7ae8;
+    color:#45D3F5 ;
+}
+
+
+
+.delete{
+    color: #333333;
+    border-color: #333333a2;
+    box-shadow: 3px 3px 5px -2px #333333a2; 
+    padding: 1rem 1.1rem;
+    
+}
+
+.delete:hover,.delete:hover i {
+    color: #fff;
+    background-color: #333;
+}
 .status{
     border: 1px solid ;
     padding: 0.5rem .8rem;
@@ -88,4 +128,81 @@ text-align:center;
     border-color: #EBB93F;
     color: #EBB93F;
     box-shadow: 3px 3px 5px -2px #EBB93Fa2; 
+    white-space: nowrap;
+}
+
+
+/* modal css */
+.edit-container:has(input[type='checkbox']#modal:checked) .modal-container{
+ display: flex;
+}
+
+.modal-container{
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.2rem;
+    position: absolute;
+    inset: 0 0 0 0;
+    z-index: 1;
+    overflow: hidden;
+    
+    
+}
+
+.modal-bg{
+    background-color: #0000002a;
+    position: absolute;
+    inset: 0 0;
+    z-index:1 ;
+}
+
+.edit-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    background-color: #fff;
+    position: absolute;
+    padding: 2rem;
+    min-height: 20rem;
+    width: 100%;
+    max-width: 50rem;
+    z-index: 2;
+}
+
+.form-container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.2rem;
+}
+/* navigation */
+.main-header{
+    width: 100%;
+    max-width: 100rem;
+    display: flex;
+    justify-content: space-between;
+    margin-inline: auto;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+.navigation{
+   
+    display: flex;
+    align-items: center;
+}
+
+.main-menu{
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+.input-field{
+    padding: .8rem 1.2rem;
+    outline: none;
+    border: 1px solid #2b9fd5a1;
+    
 }
