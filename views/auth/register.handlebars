@@ -1,0 +1,22 @@
+<form action="/register" method="post">
+    <label >
+        <span>name</span>
+        <input type="text" name="name" >
+    </label>
+    <label >
+        <span>login</span>
+        <input type="text" name="login" >
+    </label>
+    <label >
+        <span>password</span>
+        <input type="password" name="password" >
+    </label>
+    <label >
+        <span>confirm password</span>
+        <input type="password" name="confirmPassword" >
+    </label>
+    <input type="submit" value="send">
+</form>
+{{#if messages.message}}
+    <p>{{messages.message}}</p>
+{{/if}}
