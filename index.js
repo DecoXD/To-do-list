@@ -12,7 +12,11 @@ const User = require('./models/User');
 
 //controllers
 const AuthControllers = require('./controllers/AuthControllers');
+const TaskControllers = require('./controllers/TaskControllers');
+//routes
 const AuthRoutes = require('./routes/AuthRoutes');
+const TaskRoutes = require('./routes/TaskRoutes');
+//helpers
 const { checkAuth } = require('./helpers/checkAuth');
 //initialize handlebars
 app.engine('handlebars',exphbs.engine());
@@ -51,7 +55,8 @@ app.use((req,res,next) => {
     next()
 })
 
-app.get('/' ,checkAuth, AuthControllers.register)
+app.get('/' ,checkAuth, TaskControllers.home)
 app.use('/',AuthRoutes)
+app.use('/tasks',TaskRoutes)
 
 app.listen(3000)

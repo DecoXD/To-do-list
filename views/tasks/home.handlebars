@@ -1,0 +1,33 @@
+
+<div class="tasks-container">
+    <a href="/tasks/create"  class="btn add">adcionar task</a>
+    <table>
+      <tr>
+        <th>#</th>
+        <th>Task Name</th>
+        <th>Status</th>
+        <th>Edit</th>
+        <th>Remove</th>
+      </tr>
+     {{#each tasks}}
+      <tr>
+        <td>1</td>
+        <td>{{this.title}}</td>
+        {{#if this.done}}
+        {{!-- criar um hover para quando nao estiver completo para fechar a pagina e aparecer para completar --}}
+          <td><span class="status done">Completed</span></td>
+        {{else}}
+          <td><span class="status progress">In Progress</span></td>
+        {{/if}}
+        <td><a href="">Edit</a></td>
+        <td style="width: 50px;">
+          <form action="/tasks/delete" method="post">
+            <input type="hidden" name="_id" value="{{this._id}}">
+            <button type="submit" class="btn">Remove</button>
+        </form></td>
+      </tr>
+     {{/each}}
+    
+    
+    </table>
+</div>

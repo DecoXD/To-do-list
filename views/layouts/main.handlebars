@@ -3,13 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/index.css">
     <title>TaskList</title>
 </head>
 <body>
     <h1>TaskList</h1>
-    {{#if session.userid}}
-        <a href="/logout"> logout</a>
-    {{/if}}
-    {{{body}}}
+    <nav>
+        <ul> 
+            {{#if session.userid}}
+            <li><a href="/">home</a></li>
+            <li><a href="/logout">logout</a></li> 
+            {{else:}}
+            <li><a href="/login">login</a></li>
+            <li><a href="/register">register</a></li>
+            {{/if}}
+        </ul>
+    </nav>
+  
+        
+   
+    <div class="container">{{{body}}}</div>
 </body>
 </html>
