@@ -3,7 +3,7 @@
     <form action="/tasks/create" method="post" class="form-container">
         <label class="form-item">
             <span>Title:</span>
-            <input type="text" name="title" required class="input-field">
+            <input type="text" name="title" required class="input-field" maxlength="30">
         </label>
         <input type="hidden" name="done" value="0">
         <input type="submit" value="add" class="btn add">

@@ -1,22 +1,29 @@
-<form action="/register" method="post">
-    <label >
-        <span>name</span>
-        <input type="text" name="name" >
-    </label>
-    <label >
-        <span>login</span>
-        <input type="text" name="login" >
-    </label>
-    <label >
-        <span>password</span>
-        <input type="password" name="password" >
-    </label>
-    <label >
-        <span>confirm password</span>
-        <input type="password" name="confirmPassword" >
-    </label>
-    <input type="submit" value="send">
-</form>
-{{#if messages.message}}
-    <p>{{messages.message}}</p>
-{{/if}}
+<div class="auth-form-container">
+    <h3>Register</h3>
+    <form action="/register" method="post" class="auth-form">
+        <label class="form-item" >
+            <span>name</span>
+            <input type="text" name="name"  class="input-field">
+        </label>
+    
+        <label class="form-item" >
+            <span>login</span>
+            <input type="text" name="login"  class="input-field">
+        </label>
+    
+        <label  class="form-item">
+            <span>password</span>
+            <input type="password" name="password" class="input-field" >
+        </label>
+    
+        <label class="form-item" >
+            <span>confirm password</span>
+            <input type="password" name="confirmPassword"  class="input-field">
+        </label>
+    
+        <input type="submit" value="Register" class="btn auth-btn">
+    </form>
+    {{#if messages.message}}
+        <p class="error">{{messages.message}}</p>
+    {{/if}}
+</div>

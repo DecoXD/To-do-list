@@ -1,14 +1,17 @@
-<form action="/login" method="post">
-    <label >
-        <span>login</span>
-        <input type="text" name="login" >
-    </label>
-    <label >
-        <span>password</span>
-        <input type="password" name="password" >
-    </label>
-    <input type="submit" value="send">
-</form>
-{{#if messages.message}}
-    <p>{{messages.message}}</p>
-{{/if}}
+<div class="auth-form-container">
+    <h3>Login</h3>
+    <form action="/login" method="post" class="auth-form">
+        <label class="form-item">
+            <span>login</span>
+            <input type="text" name="login" class="input-field" >
+        </label>
+        <label class="form-item">
+            <span>password</span>
+            <input type="password" name="password" class="input-field">
+        </label>
+        <input type="submit" value="Login" class="btn auth-btn">
+    </form>
+    {{#if messages.message}}
+        <p class="error">{{messages.message}}</p>
+    {{/if}}
+</div>

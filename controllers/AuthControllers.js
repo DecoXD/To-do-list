@@ -46,6 +46,7 @@ module.exports = class AuthControllers{
        } catch (error) {
             console.log('error no login')
             req.flash('message',error.message)
+            res.render('auth/login')
        }
 
     }

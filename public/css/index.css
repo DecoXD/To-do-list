@@ -13,6 +13,7 @@ html{
 body{
 font-size: 1.6rem;
 font-family: "Poppins";
+background-color: #f8f8f8;
 
 }
 
@@ -56,14 +57,23 @@ padding: 1rem;
 
 th {
 background-color: #f2f2f2;
-font-size: clamp(1.1rem,.8rem + 1vw, 1.6rem);
 }
 
 th, td {
 text-align:center;
+font-size: clamp(1.1rem,.8rem + 1vw, 1.6rem);
+
 
 }
 
+.td-title{
+box-sizing: border-box;
+max-width: clamp(70px,5px + 8rem,200px);
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+
+}
 .c-span1{
     max-width: 6rem;
 }
@@ -177,6 +187,43 @@ text-align:center;
     flex-direction: column;
     align-items: flex-start;
     gap: 1.2rem;
+   
+}
+
+.auth-form-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+    margin-inline:auto;
+    max-width: 420px;
+    width: 100%;
+}
+.auth-form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 1.2rem;
+    padding: 2rem;
+    background-color: #FFF;
+
+}
+.form-item{
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+    width: 100%;
+    max-width: 380px;
+    
+}
+
+.auth-btn{
+    align-self:flex-start;
+    background-color: #4d7ae8;
+    color: #fff;
+}
+.auth-btn:hover{
+    transform: scale(1.01);
 }
 /* navigation */
 .main-header{
@@ -205,4 +252,11 @@ text-align:center;
     outline: none;
     border: 1px solid #2b9fd5a1;
     
+}
+
+.error{
+    background-color: rgba(255, 0, 0, 0.575);
+    padding: 1.2px 3px;
+    color: #fff;
+    font-size: clamp(1rem,.5rem + 1vw ,1.4rem)
 }
